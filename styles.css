@@ -7,3 +7,5 @@
 /* Keep the monthly result visible before the configuration on small screens. */
 .hero-visual>img{border-radius:22px}
 @media(max-width:580px){.plan-grid{display:flex;flex-direction:column}.plan-result{display:contents}.plan-grid .monthly-panel{order:-1}.plan-form{width:100%}}
+.page{scroll-margin-top:115px}
+@media(max-width:580px){.page{scroll-margin-top:130px}}

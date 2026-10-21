@@ -10,6 +10,8 @@ Catálogo interactivo del mercado venezolano. Datos de Price Ladder, corte 20 de
 - Comparador con la estructura completa de las 16 matrices SPECS; selección libre o vista original por gama.
 - Plan de compra desde favoritos o el catálogo, tasa nominal anual/efectiva anual/mensual, switches independientes de IVA e IGTF, amortización y escenarios de 24 a 96 meses.
 
+- Propuestas de compra guardadas localmente, con importes y condiciones originales, edición y descarga.
+
 ## Datos
 
 `data.js` es el catálogo integrado; `app.js`, la interfaz; `math.js`, las fórmulas financieras; `styles.css`, la presentación. La página de extracción permite exportar los datos organizados y el cruce entre catálogos.

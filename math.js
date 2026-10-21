@@ -9,3 +9,7 @@ globalThis.RutaMath=(()=>{
  return {safe,pmt,presentValue,finalPrice,plan,schedule};
 })();
 if(typeof module!=='undefined')module.exports=globalThis.RutaMath;
+
+// Convert the displayed rate to the nominal annual input used by the annuity formula.
+RutaMath.rate=(value,type)=>{value=RutaMath.safe(value);let monthly=type==='monthly'?value/100:type==='effective'?Math.expm1(Math.log1p(value/100)/12):value/1200;return {monthly,nominal:monthly*1200,effective:Math.expm1(12*Math.log1p(monthly))};};
+RutaMath.taxes=(amount,basis,vatRate,igtfRate,vatOn,igtfOn,mode)=>{amount=RutaMath.safe(amount);vatRate=RutaMath.safe(vatRate);igtfRate=RutaMath.safe(igtfRate);if(basis==='final')return {base:amount,vat:0,igtf:0,total:amount};let base=basis==='iva'?amount/(1+vatRate/100):amount,vat=vatOn?base*vatRate/100:0,invoice=base+vat,igtf=igtfOn?(mode==='mixed'?base:invoice)*igtfRate/100:0;return {base,vat,igtf,total:invoice+igtf};};

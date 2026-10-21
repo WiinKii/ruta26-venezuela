@@ -1,28 +1,29 @@
 # RUTA 26 · Venezuela
 
-Estudio interactivo e independiente del mercado de vehículos en Venezuela.
+Catálogo interactivo del mercado venezolano. Datos de Price Ladder, corte 20 de octubre de 2026, y vehículos exclusivos del catálogo previo de RUTA.
 
-## Explorar
+## Funciones
 
-- Catálogo con búsqueda, filtros por marca/carrocería y estado del precio.
-- 192 registros de modelos y versiones, con 42 entradas en el directorio de marcas y canales.
-- Imágenes en todas las fichas, galerías, especificaciones y enlaces a las fuentes.
-- Favoritos persistentes con importación y exportación de la selección.
-- Comparador de hasta cuatro vehículos.
-- Plan de compra: pago mensual destacado, escenarios sin intereses y con tasa nominal anual, plazos de 24, 36, 48, 72 y 96 meses, amortización y costos de uso.
+- Filtros acumulables por marca y tipo; orden por marca y precio.
+- Ofertas de mercado/lista, transaccionales, de compra programada e inmediatas diferenciadas.
+- Favoritos y sets de comparaciones guardados en el navegador, con importación y exportación.
+- Comparador con la estructura completa de las 16 matrices SPECS; selección libre o vista original por gama.
+- Plan de compra desde favoritos o el catálogo, tasa nominal anual/efectiva anual/mensual, switches independientes de IVA e IGTF, amortización y escenarios de 24 a 96 meses.
 
-## Interpretación
+## Datos
 
-Las fechas y el alcance de cada comprobación se muestran en las fichas. Una referencia extranjera no acredita precio, disponibilidad ni costo de importación en Venezuela. Un importe sin desglose tampoco acredita un total final. Las hipótesis fiscales son editables y no se aplican automáticamente otra vez a las cotizaciones recibidas.
+`data.js` es el catálogo integrado; `app.js`, la interfaz; `math.js`, las fórmulas financieras; `styles.css`, la presentación. La página de extracción permite exportar los datos organizados y el cruce entre catálogos.
 
-Las imágenes son ilustrativas; las procedentes de otros mercados se identifican. Marcas, fotografías y documentos técnicos pertenecen a sus respectivos titulares. Este estudio no representa a los fabricantes.
+Price Ladder sustituye precio y SPECS de las versiones coincidentes. Se conserva el mes de cada observación, sin confundirlo con la fecha del corte. Las referencias de precios extranjeros se retiraron. Una celda vacía no se interpreta como ausencia de equipamiento.
 
-Los favoritos y escenarios se guardan en el navegador. No se transmiten a un servicio de almacenamiento ni se sincronizan entre dispositivos.
+Las variantes con cabecera vacía pueden reutilizar valores comunes de la columna base en la comparación personalizada; se identifican con ↳. La vista por gama conserva las celdas originales. Las unidades, denominaciones y posibles erratas permanecen como en la fuente.
+
+Los impuestos se activan por separado como hipótesis editables y no acreditan un desglose confirmado. Un total final impide volver a añadirlos. Los planes de compra programada y sus reservas se distinguen de la inicial de un crédito.
+
+No se buscaron imágenes nuevas para esta actualización. Los modelos incorporados sin imagen aparecen como pendientes. Imágenes, marcas y fichas técnicas pertenecen a sus titulares.
 
 ## Publicación
 
-Sitio estático sin compilación. GitHub Pages publica la raíz de la rama `main`. Abrir `index.html` para usar una copia local con sus archivos de apoyo.
+Sitio estático sin compilación. GitHub Pages publica la raíz de `main`. Una copia local debe conservar `index.html`, los scripts, estilos y `assets/` juntos.
 
-Archivos principales: `data.js` (datos y fuentes), `app.js` (interfaz), `math.js` (simulación financiera), `styles.css` (diseño). Las fichas técnicas están en `fichas/` y las imágenes en `assets/`.
-
-Documentación consultada entre el 13 y el 19 de octubre de 2026. Actualización de la interfaz: 20 de octubre de 2026.
+Favoritos, comparaciones y escenarios se almacenan en `localStorage`; no hay almacenamiento propio en servidor ni sincronización automática entre dispositivos.

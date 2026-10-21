@@ -20,7 +20,7 @@ Las variantes con cabecera vacía pueden reutilizar valores comunes de la column
 
 Los impuestos se activan por separado como hipótesis editables y no acreditan un desglose confirmado. Un total final impide volver a añadirlos. Los planes de compra programada y sus reservas se distinguen de la inicial de un crédito.
 
-No se buscaron imágenes nuevas para esta actualización. Los modelos incorporados sin imagen aparecen como pendientes. Imágenes, marcas y fichas técnicas pertenecen a sus titulares.
+Se revisaron los precios pendientes en portales oficiales venezolanos y se ampliaron galerías de exteriores, interiores y tecnología. Los precios adicionales mantienen condiciones y fecha de publicación. Se simplificaron gamas y se añadió comparación de todos los favoritos o por grupos, con sets que conservan su selección. Imágenes, marcas y fichas técnicas pertenecen a sus titulares.
 
 ## Publicación
 

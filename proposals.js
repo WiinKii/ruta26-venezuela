@@ -1,7 +1,7 @@
 'use strict';
 // Proposals are local snapshots: later catalog or form edits never change a saved plan.
 (()=>{
- const key='proposals-v1',extraIds=['budgetMonthly','budgetDown','budgetSubsidy','budgetReserve','km','fuelUse','fuelPrice','insurance','maintenance','otherUse'];
+ const key='proposals-v1',extraIds=['km','fuelUse','fuelPrice','insurance','maintenance','otherUse'];
  const isRecord=p=>p&&typeof p.id==='string'&&typeof p.name==='string'&&p.state?.version===3&&p.state.values&&p.result&&['payment','down','principal','months','total','paid','interest'].every(k=>typeof p.result[k]==='number'&&Number.isFinite(p.result[k])&&p.result[k]>=0)&&[24,36,48,72,96].includes(p.result.months);
  const read=()=>{let a=stored(key,[]);return Array.isArray(a)?a.filter(isRecord):[]};
  let records=read(),activeId=null,deleted=null,restoring=false;

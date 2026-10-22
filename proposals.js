@@ -28,15 +28,16 @@
  function openProposal(id){let p=records.find(x=>x.id===id);if(!p)return;restoring=true;
   try{loadLoan(get(alias(p.state.car))?.id||'',false,p.state.offer);for(let id of formIds)if(typeof p.state.values[id]==='string')$(id).value=p.state.values[id];for(let id of extraIds)if(typeof p.extras?.[id]==='string')$(id).value=p.extras[id];$('enableInterest').checked=p.state.interest===true;$('enableVAT').checked=p.state.vat===true;$('enableIGTF').checked=p.state.igtf===true;
    let option=[...$('loanOffer').options].find(o=>o.value===p.state.offer);if(!option){option=document.createElement('option');option.value=p.state.offer||'';$('loanOffer').append(option)}option.textContent=p.offerLabel||'Oferta guardada';$('loanOffer').value=p.state.offer||'';$('loanSource').textContent=p.sourceNote||'Valores de una propuesta guardada.';activeId=p.id;$('proposalName').value=p.name;finance();
-  }finally{restoring=false}updateDraft();go('plan');
+  }finally{restoring=false}updateDraft();window.RutaBudget?.setTab('vehicle');go('plan');
  }
  function removeProposal(id){let p=records.find(x=>x.id===id);if(!p)return;if(persist(records.filter(x=>x.id!==id))){deleted=p;if(activeId===id){activeId=null;$('proposalName').value=''}$('proposalUndoText').textContent='Se eliminó «'+p.name+'».';$('proposalUndo').hidden=false;updateDraft();}}
  $('saveProposal').onclick=()=>storeProposal();$('saveProposalCopy').onclick=()=>storeProposal(true);
  $('proposalName').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();storeProposal()}});
- $('newProposal').onclick=()=>{activeId=null;$('proposalName').value='';updateDraft();go('plan')};
+ function startNew(navigate=true){activeId=null;$('proposalName').value='';updateDraft();if(navigate){window.RutaBudget?.setTab('vehicle');go('plan')}}
+ $('newProposal').onclick=()=>startNew();
  $('undoProposal').onclick=()=>{if(deleted&&persist([deleted,...records.filter(x=>x.id!==deleted.id)])){deleted=null;$('proposalUndo').hidden=true;toast('Propuesta recuperada.')}};
  $('exportProposals').onclick=()=>download('ruta26-propuestas.json',JSON.stringify({version:1,exportedAt:new Date().toISOString(),proposals:records},null,2));
  document.addEventListener('click',e=>{let b=e.target.closest('[data-open-proposal],[data-delete-proposal]');if(!b)return;if(b.dataset.openProposal)openProposal(b.dataset.openProposal);if(b.dataset.deleteProposal)removeProposal(b.dataset.deleteProposal)});
  window.addEventListener('storage',e=>{if(e.key==='ruta26-'+key||e.key===null){records=read();render();updateDraft()}});
- window.RutaProposals={updateDraft};render();updateDraft();
+ window.RutaProposals={updateDraft,startNew};render();updateDraft();
 })();

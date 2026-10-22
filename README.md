@@ -12,6 +12,8 @@ Catálogo interactivo del mercado venezolano. Datos de Price Ladder, corte 20 de
 
 - Propuestas de compra guardadas localmente, con importes y condiciones originales, edición y descarga.
 
+- Plan inverso desde el presupuesto mensual, con impuestos por oferta, capacidad por plazo y vehículos compatibles.
+
 ## Datos
 
 `data.js` es el catálogo integrado; `app.js`, la interfaz; `math.js`, las fórmulas financieras; `styles.css`, la presentación. La página de extracción permite exportar los datos organizados y el cruce entre catálogos.
